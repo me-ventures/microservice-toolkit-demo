@@ -1,0 +1,48 @@
+---
+swagger: "2.0"
+info:
+  description: "Basic-User API"
+  version: "1.0.0"
+  title: "Basic User API"
+host: "basic-user"
+basePath: "/v1"
+schemes:
+- "http"
+produces:
+- "application/json"
+paths:
+  /me:
+    get:
+      x-swagger-router-controller: hello_world
+      description: Creates a user.
+      operationId: addUser
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: User was succesfull added
+          schema:
+            $ref: '#/definitions/user'
+        '409':
+          description: Email adress already exists
+          schema:
+            $ref: '#/definitions/errorModel'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/errorModel'
+definitions:
+  user:
+    type: object
+    required:
+      - hello
+    properties:
+      hello:
+        type: string
+  errorModel:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: string

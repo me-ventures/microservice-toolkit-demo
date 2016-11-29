@@ -10,5 +10,5 @@ function storeArticle( article ){
 }
 
 function storeTranslation( translation ){
-    return persistence.saveTranslation(translation.id, translation);
+    return persistence.saveTranslation(translation.id, translation.translations);
 }

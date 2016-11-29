@@ -1,0 +1,34 @@
+{
+  "name": "translation-service",
+  "http": {
+    "port": 8000
+  },
+  "authorization": {
+    "endpoint": "http://authorization"
+  },
+  "logger": {
+    "module": "translation-service"
+  },
+  "status": {
+    "port": 11111,
+    "service": {
+      "name": "translation-service"
+    }
+  },
+  "metrics": {
+    "host": "localhost",
+    "port": 8125,
+    "prefix": "translation-service"
+  },
+  "context": {
+    "rabbitmq": {
+      "host": "localhost"
+    }
+  },
+  "swagger": {
+    "docPath": "api/swagger.yaml",
+    "swaggerUi": "swagger.json",
+    "controllers": "src/controllers",
+    "useStubs": false
+  }
+}
