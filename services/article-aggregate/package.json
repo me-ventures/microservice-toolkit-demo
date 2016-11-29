@@ -1,0 +1,21 @@
+{
+  "name": "article-aggregate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "run": "node ./run.js",
+    "test": "mocha --recursive test/"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.5",
+    "config": "^1.20.4",
+    "handlebars": "^4.0.5",
+    "js-yaml": "^3.6.1",
+    "microservice-toolkit": "^1.0.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
