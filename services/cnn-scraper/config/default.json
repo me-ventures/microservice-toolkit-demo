@@ -1,0 +1,37 @@
+{
+  "name": "cnn-scraper",
+  "description": {
+    "platform": "cnn"
+  },
+  "http": {
+    "port": 8000
+  },
+  "authorization": {
+    "endpoint": "http://authorization"
+  },
+  "logger": {
+    "module": "cnn-scraper"
+  },
+  "status": {
+    "port": 11111,
+    "service": {
+      "name": "cnn-scraper"
+    }
+  },
+  "metrics": {
+    "host": "localhost",
+    "port": 8125,
+    "prefix": "cnn-scraper"
+  },
+  "context": {
+    "rabbitmq": {
+      "host": "localhost"
+    }
+  },
+  "swagger": {
+    "docPath": "api/swagger.yaml",
+    "swaggerUi": "swagger.json",
+    "controllers": "src/controllers",
+    "useStubs": false
+  }
+}

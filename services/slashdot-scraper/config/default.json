@@ -1,0 +1,37 @@
+{
+  "name": "slashdot-scraper",
+  "description": {
+    "platform": "slashdot"
+  },
+  "http": {
+    "port": 8000
+  },
+  "authorization": {
+    "endpoint": "http://authorization"
+  },
+  "logger": {
+    "module": "slashdot-scraper"
+  },
+  "status": {
+    "port": 11111,
+    "service": {
+      "name": "slashdot-scraper"
+    }
+  },
+  "metrics": {
+    "host": "localhost",
+    "port": 8125,
+    "prefix": "slashdot-scraper"
+  },
+  "context": {
+    "rabbitmq": {
+      "host": "localhost"
+    }
+  },
+  "swagger": {
+    "docPath": "api/swagger.yaml",
+    "swaggerUi": "swagger.json",
+    "controllers": "src/controllers",
+    "useStubs": false
+  }
+}

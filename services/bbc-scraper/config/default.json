@@ -1,0 +1,37 @@
+{
+  "name": "bbc-scraper",
+  "description": {
+    "platform": "bbc"
+  },
+  "http": {
+    "port": 8000
+  },
+  "authorization": {
+    "endpoint": "http://authorization"
+  },
+  "logger": {
+    "module": "bbc-scraper"
+  },
+  "status": {
+    "port": 11111,
+    "service": {
+      "name": "bbc-scraper"
+    }
+  },
+  "metrics": {
+    "host": "localhost",
+    "port": 8125,
+    "prefix": "bbc-scraper"
+  },
+  "context": {
+    "rabbitmq": {
+      "host": "localhost"
+    }
+  },
+  "swagger": {
+    "docPath": "api/swagger.yaml",
+    "swaggerUi": "swagger.json",
+    "controllers": "src/controllers",
+    "useStubs": false
+  }
+}
