@@ -10,6 +10,7 @@ function translateArticle( article ){
     return request({
         uri: (
             '/get?q=' + article.title
+            + '&de=maikel.eva.ventures@gmail.com'
             + '&langpair=English|Dutch'
         ),
         baseUrl: 'http://api.mymemory.translated.net/'
@@ -22,7 +23,7 @@ function translateArticle( article ){
                 return Promise.resolve();
             }
 
-            var translations = {
+            let translations = {
                 dutch: res.matches[0].translation
             };
 
