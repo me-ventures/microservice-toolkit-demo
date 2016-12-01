@@ -1,0 +1,7 @@
+{
+  "context": {
+    "rabbitmq": {
+      "host": "rabbitmq-service"
+    }
+  }
+}

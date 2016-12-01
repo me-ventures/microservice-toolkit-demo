@@ -9,9 +9,13 @@ var FeedParser = require('feedparser')
     , request = require('request');
 
 
-
+scrape();
 
 setInterval(() => {
+    scrape();
+}, config.get('settings.scrapeInterval') * 1000);
+
+function scrape(){
     var feedparser = new FeedParser();
     var req = request('http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk');
 
@@ -50,4 +54,4 @@ setInterval(() => {
             );
         }
     });
-}, 15000);
+}

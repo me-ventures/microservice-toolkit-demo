@@ -16,8 +16,6 @@ context.consumeShared(
     handleArticleUpdated
 );
 
-
-
 function handleArticleUpdated( message ) {
     return translate.translateArticle(message)
         .then(() => {
@@ -25,4 +23,10 @@ function handleArticleUpdated( message ) {
         })
         .catch(err => handleError(err, message));
 
+}
+
+function handleError( err, message ){
+    log.error(err);
+
+    return message;
 }

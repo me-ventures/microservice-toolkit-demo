@@ -10,8 +10,13 @@ var FeedParser = require('feedparser')
 
 
 
+scrape();
 
 setInterval(() => {
+    scrape();
+}, config.get('settings.scrapeInterval') * 1000);
+
+function scrape(){
     var feedparser = new FeedParser();
     var req = request('http://rss.cnn.com/rss/edition_world.rss');
 
@@ -50,4 +55,4 @@ setInterval(() => {
             );
         }
     });
-}, 15000);
+}

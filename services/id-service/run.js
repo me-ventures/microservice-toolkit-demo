@@ -21,14 +21,16 @@ context.consumeShared(
 function handler(message) {
     return idService.identifyArticle(message.article)
         .then(article => {
-            context.publishToExchange(
-                'articles',
-                'article-identified',
-                {
-                    platform: message.platform,
-                    article: article
-                }
-            );
+            if( article ){
+                context.publishToExchange(
+                    'articles',
+                    'article-identified',
+                    {
+                        platform: message.platform,
+                        article: article
+                    }
+                );
+            }
 
             return message;
         })

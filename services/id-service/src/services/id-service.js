@@ -23,8 +23,7 @@ function identifyArticle( article ){
                         return article;
                     })
             } else {
-                article.id = result;
-                return article;
+                return null;
             }
         })
 }

@@ -3,6 +3,9 @@
   "description": {
     "platform": "bbc"
   },
+  "settings": {
+    "scrapeInterval": 300
+  },
   "http": {
     "port": 8000
   },
