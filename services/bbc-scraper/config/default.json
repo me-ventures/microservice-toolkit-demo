@@ -22,7 +22,7 @@
     }
   },
   "metrics": {
-    "host": "localhost",
+    "host": "statsd-service",
     "port": 8125,
     "prefix": "bbc-scraper"
   },

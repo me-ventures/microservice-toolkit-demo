@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ labels:
+   name: grafana
+   tier: backend
+   group: monitoring
+ name: grafana
+spec:
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       name: grafana
+   spec:
+     containers:
+     - image: grafana/grafana:4.0.0
+       name: grafana
+       env:
+       - name: GF_USERS_ALLOW_SIGN_UP
+         value: "false"
+       ports:
+       - containerPort: 3000
+         name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: grafana-service
+ labels:
+   name: grafana-service
+spec:
+ ports:
+   - port: 80
+     targetPort: 3000
+     protocol: TCP
+ selector:
+   name: grafana

@@ -12,7 +12,7 @@ spec:
         name: article-aggregate
     spec:
       containers:
-        - image: article-aggregate:1.0
+        - image: article-aggregate:1.1
           name: article-aggregate
           ports:
             - containerPort: 8000

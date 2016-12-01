@@ -12,7 +12,7 @@ spec:
         name: translation-service
     spec:
       containers:
-        - image: translation-service:1.0
+        - image: translation-service:1.1
           name: translation-service
           ports:
             - containerPort: 11111

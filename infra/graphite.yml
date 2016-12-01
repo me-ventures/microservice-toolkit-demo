@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ labels:
+   name: graphite-statsd
+   tier: backend
+   group: monitoring
+ name: graphite-statsd
+spec:
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       name: graphite-statsd
+   spec:
+     containers:
+     - image: meventures/graphite-statsd:1.0.0
+       name: graphite-statsd
+       ports:
+       - containerPort: 80
+         name: http
+       - containerPort: 2003
+         name: graphite
+       - containerPort: 8125
+         protocol: UDP
+         name: statsd
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: graphite-service
+ labels:
+   name: graphite-service
+spec:
+ ports:
+   - port: 80
+     targetPort: 80
+     protocol: TCP
+ selector:
+   name: graphite-statsd
