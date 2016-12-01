@@ -1,0 +1,16 @@
+<div class="ui segment">
+  <div class="ui relaxed divided list">
+    <div class="item" *ngFor="let article of articles">
+      <div class="content">
+        <div class="header">{{article.platform | uppercase}} :: {{article.title}}</div>
+        <div class="list" *ngIf="article.translations">
+          <div>
+            <i class="right triangle icon"></i>
+            {{article.translations.dutch}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
