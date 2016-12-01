@@ -1,6 +1,7 @@
 module.exports = {
     saveArticle: saveArticle,
-    saveTranslation: saveTranslation
+    saveTranslation: saveTranslation,
+    getMostRecent: getMostRecent
 };
 
 const articleStorage = {};
@@ -21,4 +22,23 @@ function saveTranslation(id, translation ){
     metrics.gauge('translation-storage-size', Object.keys(translationStorage).length);
 
     return Promise.resolve();
+}
+
+function getMostRecent(limit) {
+    let recentArticles = [];
+    let keys = Object.keys(articleStorage);
+
+    if( keys.length < 1 ){
+        return Promise.resolve([]);
+    }
+
+    for( let i = keys.length - 1; i >= keys.length - limit && i >= 0; i-- ){
+        let article = articleStorage[keys[i]];
+
+        article.translations = translationStorage[keys[i]];
+
+        recentArticles.push(article);
+    }
+
+    return Promise.resolve(recentArticles);
 }

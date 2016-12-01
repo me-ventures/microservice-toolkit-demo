@@ -1,43 +1,49 @@
 ---
 swagger: "2.0"
 info:
-  description: "Basic-User API"
+  description: "Article API"
   version: "1.0.0"
-  title: "Basic User API"
-host: "basic-user"
-basePath: "/v1"
+  title: "Article API"
+host: "article-aggregate"
+basePath: "/"
 schemes:
 - "http"
 produces:
 - "application/json"
 paths:
-  /me:
+  /v1/articles/recent/{limit}:
     get:
-      x-swagger-router-controller: hello_world
-      description: Creates a user.
-      operationId: addUser
+      x-swagger-router-controller: articles
+      description: Gets recent articles.
+      operationId: getRecent
+      parameters:
+        - name: limit
+          in: path
+          description: limit of articles you want
+          required: true
+          type: integer
       produces:
         - application/json
       responses:
         '200':
-          description: User was succesfull added
+          description: got articles
           schema:
-            $ref: '#/definitions/user'
-        '409':
-          description: Email adress already exists
-          schema:
-            $ref: '#/definitions/errorModel'
+            $ref: '#/definitions/articles'
         default:
           description: unexpected error
           schema:
             $ref: '#/definitions/errorModel'
 definitions:
-  user:
+  articles:
+    type: array
+    items:
+      $ref: '#/definitions/article'
+  article:
     type: object
     required:
-      - hello
+      - title
     properties:
-      hello:
+      title:
         type: string
   errorModel:
     type: object
