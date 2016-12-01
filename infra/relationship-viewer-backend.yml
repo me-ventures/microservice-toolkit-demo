@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: relationship-backend
+  name: relationship-backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: relationship-backend
+    spec:
+      containers:
+        - image: meventures/relationship-viewer-backend:e49e7d8d5e71faa8d3a9b526e31e06e9bb3549b3
+          name: relationship-backend
+          ports:
+            - containerPort: 3000
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: relationship-backend
+  labels:
+    name: relationship-backend
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+      name: http
+      protocol: TCP
+  selector:
+    name: relationship-backend
