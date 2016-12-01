@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: translation-service
+  name: translation-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: translation-service
+    spec:
+      containers:
+        - image: translation-service:1.0
+          name: translation-service
+          ports:
+            - containerPort: 11111
+              name: status

@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: article-aggregate
+  name: article-aggregate
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: article-aggregate
+    spec:
+      containers:
+        - image: article-aggregate:1.0
+          name: article-aggregate
+          ports:
+            - containerPort: 8000
+              name: http
+            - containerPort: 11111
+              name: status
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: article-aggregate
+  labels:
+    name: article-aggregate
+spec:
+  ports:
+    - port: 80
+      targetPort: 8000
+      name: http
+      protocol: TCP
+  selector:
+    name: article-aggregate

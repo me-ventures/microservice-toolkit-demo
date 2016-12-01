@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: id-service
+  name: id-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: id-service
+    spec:
+      containers:
+        - image: id-service:1.0
+          name: id-service
+          ports:
+            - containerPort: 11111
+              name: status

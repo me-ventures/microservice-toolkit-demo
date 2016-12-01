@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: data-store
+  name: data-store
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: data-store
+    spec:
+      containers:
+        - image: data-store:1.0
+          name: data-store
+          ports:
+            - containerPort: 11111
+              name: status
