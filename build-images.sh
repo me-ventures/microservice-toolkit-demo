@@ -30,3 +30,8 @@ docker build -t id-service:1.1 .
 cd ../translation-service
 npm install
 docker build -t translation-service:1.1 .
+
+cd ../article-frontend
+npm install
+ng build --target=production --sourcemap=false
+docker build -t article-frontend:1.1 .
