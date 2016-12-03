@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    this.http.get('http://localhost:8000/v1/articles/recent/50', { headers })
+    this.http.get('http://app.demo.com:10080/api/v1/articles/recent/50', { headers })
       .map(res => res.json())
       .toPromise()
       .then((result) => {
