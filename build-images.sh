@@ -31,6 +31,10 @@ cd ../translation-service
 npm install
 docker build -t meventures/demo-translation-service:1.1 .
 
+cd ../erroneous-service
+npm install
+docker build -t meventures/demo-erroneous-service:1.0 .
+
 cd ../article-frontend
 npm install
 ng build --target=production --sourcemap=false

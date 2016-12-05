@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: erroneous-service
+  name: erroneous-service
+spec:
+  replicas: 0
+  template:
+    metadata:
+      labels:
+        name: erroneous-service
+    spec:
+      containers:
+        - image: meventures/demo-erroneous-service:1.0
+          name: erroneous-service
+          ports:
+            - containerPort: 11111
+              name: status
