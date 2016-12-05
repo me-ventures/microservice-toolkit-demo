@@ -12,7 +12,7 @@ spec:
         name: slashdot-scraper
     spec:
       containers:
-        - image: slashdot-scraper:1.1
+        - image: meventures/demo-slashdot-scraper:1.1
           name: slashdot-scraper
           ports:
             - containerPort: 11111

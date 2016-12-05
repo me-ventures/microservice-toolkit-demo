@@ -12,7 +12,7 @@ spec:
         name: data-store
     spec:
       containers:
-        - image: data-store:1.1
+        - image: meventures/demo-data-store:1.1
           name: data-store
           ports:
             - containerPort: 11111
