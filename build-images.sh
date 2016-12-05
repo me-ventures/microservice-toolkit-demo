@@ -33,7 +33,7 @@ docker build -t meventures/demo-translation-service:1.1 .
 
 cd ../erroneous-service
 npm install
-docker build -t meventures/demo-erroneous-service:1.0 .
+docker build -t meventures/demo-erroneous-service:1.1 .
 
 cd ../article-frontend
 npm install

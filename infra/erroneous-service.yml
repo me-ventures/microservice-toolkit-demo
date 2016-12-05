@@ -12,7 +12,7 @@ spec:
         name: erroneous-service
     spec:
       containers:
-        - image: meventures/demo-erroneous-service:1.0
+        - image: meventures/demo-erroneous-service:1.1
           name: erroneous-service
           ports:
             - containerPort: 11111
