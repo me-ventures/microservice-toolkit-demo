@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: relationship-mapper
+  name: relationship-mapper
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: relationship-mapper
+    spec:
+      containers:
+        - image: meventures/service-relationship-mapper:1.0
+          name: relationship-mapper
+          ports:
+            - containerPort: 8000
+              name: http
+            - containerPort: 11111
+              name: status
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: relationship-mapper
+  labels:
+    name: relationship-mapper
+spec:
+  ports:
+    - port: 80
+      targetPort: 8000
+      name: http
+      protocol: TCP
+  selector:
+    name: relationship-mapper
+
