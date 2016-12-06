@@ -6,8 +6,7 @@ metadata:
       traefik.frontend.rule.type: "PathPrefixStrip"
 spec:
   rules:
-  - host: articles.demo.com
-    http:
+  - http:
       paths:
        - path: /api
          backend:
