@@ -1,5 +1,9 @@
 # Microservice-toolkit-demo
 
+Overview of services:
+
+
+<img src="https://github.com/me-ventures/microservice-toolkit-demo/blob/master/docs/Demo-Setup.png" width="250">
 
 ## Dependencies
 
