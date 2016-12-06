@@ -13,6 +13,10 @@ spec:
          backend:
            serviceName: article-aggregate
            servicePort: 80
+       - path: /monitor
+         backend:
+           serviceName: grafana-service
+           servicePort: 80
        - backend:
            serviceName: article-frontend
            servicePort: 80
