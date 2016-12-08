@@ -85,3 +85,18 @@ traefik-service        10.3.248.53    123.45.67.89    80/TCP                    
 ```
 
 .. then go to `articles.demo.com`
+
+### Grafana
+
+Because we updated our hosts file, we can simply go to `articles.demo.com/monitor` to view the Grafana dashboard
+
+#### Add data sources
+
+- add Graphite data source with address `http://graphite-service`
+- add Prometheus data source with address `http://prometheus:9090`
+
+#### Import Dashboards
+
+Import optional dashboards located in the grafana directory of this repository: https://github.com/me-ventures/microservice-toolkit-demo/tree/master/grafana
+
+
