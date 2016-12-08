@@ -65,3 +65,23 @@ kubectl apply -f infra/
 ```
 
 You can watch the pods again and wait until they are all have the running status. This can take a couple minutes.
+
+
+## Using it
+
+add traefik service external ip to `/etc/hosts` under `articles.demo.com`
+
+```bash
+# list services
+kubectl get svc
+
+# should output something like this:
+NAME                   CLUSTER-IP     EXTERNAL-IP     PORT(S)                       AGE
+...
+traefik-service        10.3.248.53    123.45.67.89    80/TCP                        2d
+
+# /etc/hosts
+123.45.67.89       articles.demo.com
+```
+
+.. then go to `articles.demo.com`
