@@ -69,7 +69,7 @@ You can watch the pods again and wait until they are all have the running status
 
 ## Using it
 
-add traefik service external ip to `/etc/hosts` under `articles.demo.com`
+Add traefik service external ip to `/etc/hosts` under `articles.demo.com`
 
 ```bash
 # list services
@@ -88,7 +88,16 @@ traefik-service        10.3.248.53    123.45.67.89    80/TCP                    
 
 ### Grafana
 
-Because we updated our hosts file, we can simply go to `articles.demo.com/monitor` to view the Grafana dashboard
+Port forward grafana pod
+
+```bash
+# list pods
+kubectl get pods
+
+kubectl port-forward <grafana-pod> <local-port>:3000
+```
+
+.. then view grafana at `localhost:<local-port>`
 
 #### Add data sources
 
