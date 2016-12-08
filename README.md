@@ -99,4 +99,18 @@ Because we updated our hosts file, we can simply go to `articles.demo.com/monito
 
 Import optional dashboards located in the grafana directory of this repository: https://github.com/me-ventures/microservice-toolkit-demo/tree/master/grafana
 
+### Service Mapping Tool
+
+Port forward relationship mapper and relationship backend pods
+
+```bash
+# list pods
+kubectl get pods
+
+kubectl port-forward <relationship-mapper-pod> <local-port>:80
+kubectl port-forward <relationship-backend-pod> 3000
+```
+
+.. then view the tool at `localhost:<local-port>`
+
 
